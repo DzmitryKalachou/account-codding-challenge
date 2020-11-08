@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      connection-test-query: SELECT 1
+      initialization-fail-timeout: 15000
+      pool-name: Application
+    url: "jdbc:postgresql://localhost:5432/account?characterEncoding=UTF-8"
+    username: "app"
+    password: "app"
+    initialization-mode: always
+  jooq:
+    sql-dialect: postgres
+management:
+  health:
+    key:
+      enabled: datasource, diskspace, ping
